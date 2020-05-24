@@ -13,11 +13,11 @@ namespace Task_1_1_8
             int[,,] arr = new int[3, 3, 3];
             Random random = new Random();
             WriteLine("Original array: ");
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < arr.GetLength(0); i++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int j = 0; j < arr.GetLength(1); j++)
                 {
-                    for (int k = 0; k < 3; k++)
+                    for (int k = 0; k < arr.GetLength(2); k++)
                     {
                         arr[i, j, k] = random.Next(-10, 10);
                         Write($"{arr[i, j, k]} ");
@@ -29,11 +29,11 @@ namespace Task_1_1_8
                 
             int[,,] resultArr = GetNoPositiveArray(arr);
             WriteLine("Non-positive array: ");
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < arr.GetLength(0); i++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int j = 0; j < arr.GetLength(1); j++)
                 {
-                    for (int k = 0; k < 3; k++)
+                    for (int k = 0; k < arr.GetLength(2); k++)
                     {
                         Write($"{resultArr[i, j, k]} ");
                     }
@@ -46,9 +46,9 @@ namespace Task_1_1_8
         }
         static int[,,] GetNoPositiveArray(int[,,] arr)
         {
-            for (int i = 0; i < 3; i++)
-                for (int j = 0; j < 3; j++)
-                    for (int k = 0; k < 3; k++)
+            for (int i = 0; i < arr.GetLength(0); i++)
+                for (int j = 0; j < arr.GetLength(1); j++)
+                    for (int k = 0; k < arr.GetLength(2); k++)
                         if (arr[i, j, k] > 0) arr[i, j, k] = 0;
             return arr;
         }
