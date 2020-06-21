@@ -2,10 +2,9 @@
 
 namespace Task_2_1_2_CUSTOM_PAINT
 {
-    // Круг
     class Circle : Round
     {
-        // Свойство площади круга, расширение функционала окружности
+        // Property the area of a circle, the expansion of the functionality of the circle
         public double Area { get; }
         public Circle() : base()
         {

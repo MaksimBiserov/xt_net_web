@@ -4,12 +4,33 @@ namespace CustomStringLibrary
 {
     public class CustomString
     {
-        #region Field
-        char[] literals = null; // массив хранения символов
+        const int defaultLength = 128;
+        char[] literals = null; // array for storing characters
+
+        #region CTORs
+        public CustomString()
+        {
+            literals = new char[defaultLength];
+        }
+        public CustomString(int size)
+        {
+            literals = new char[size];
+        }
+        // constructor for describing a string as an array of characters
+        public CustomString(char[] array)
+        {
+            literals = new char[array.Length];
+            CustomValue = new char[array.Length];
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                literals[i] = array[i];
+            }
+        }
         #endregion
 
         #region PROPs
-        public char[] CustomValue // свойство установки и получения массива символов
+        public char[] CustomValue // property for setting and getting an array of characters
         {
             get
             {
@@ -19,11 +40,21 @@ namespace CustomStringLibrary
             {
                 for (int i = 0; i < literals.Length; i++)
                 {
-                    CustomValue[i] = literals[i];
+                    if(literals.Length <= defaultLength)
+                    {
+                        CustomValue[i] = literals[i];
+                        CustomValue[i] = value[i];
+                    }
+                    else
+                    {
+                        Array.Resize(ref literals, literals.Length);
+                        CustomValue[i] = literals[i];
+                        CustomValue[i] = value[i];
+                    }
                 }
             }
         }
-        public int Length // свойство установки и получения длины
+        public int Length // property for setting and getting length
         {
             get
             {
@@ -33,7 +64,10 @@ namespace CustomStringLibrary
             {
                 char[] temp = new char[value];
                 if (value > literals.Length)
+                {
                     value = literals.Length;
+                }
+
                 for (int i = 0; i < value; i++)
                 {
                     temp[i] = literals[i];
@@ -45,8 +79,8 @@ namespace CustomStringLibrary
 
         #region Indexer
         // *"Подумайте над использованием в своем классе функционала индексатора(indexer). Реализуйте его для своей строки."
-        // Индексатор для возможности индексирования через [] к выражению типа CustomString
-        // В данном классе обеспечивает возможность сравнения и присвоения элементов практически во всех методах
+        // Indexer for indexing via [] to an expression of the CustomString type
+        // In this class, it provides the ability to compare and assign elements in almost all methods
         public char this[int index]
         {
             get
@@ -60,104 +94,99 @@ namespace CustomStringLibrary
         }
         #endregion
 
-        #region CTORs
-        public CustomString()
-        {
-            literals = new char[128];
-        }
-        public CustomString(int size)
-        {
-            literals = new char[size];
-        }
-        // конструктор, позволяющий описать строку как массив символов
-        public CustomString(char[] array)
-        {
-            literals = new char[array.Length];
-            CustomValue = new char[array.Length];
-            for (int i = 0; i < array.Length; i++)
-            {
-                literals[i] = array[i];
-            }
-        }
-        #endregion
-
         #region Methods
-        // Реализация метода сравнения значений строк,
-        // проверка на равенство ссылок может быть проведена с помощью оператора ==
-        public static bool CustomCompare(CustomString str1, CustomString str2)
+        // Implementing a method for comparing string values,
+        // checking for equality of links can be performed using the == operator
+        public static bool Compare(CustomString str1, CustomString str2)
         {
             if (str1.Length != str2.Length)
+            {
                 return false;
+            }
+
             for (int i = 0; i < str1.Length; i++)
+            {
                 if (str1[i] != str2[i])
+                {
                     return false;
+                }
+            }
             return true;
         }
-        // Реализация метода конкатенации - оператор + перегружен
-        public static CustomString CustomConcat(CustomString str1, CustomString str2)
+        // Implementation of the concatenation method - the + operator is overloaded
+        public static CustomString Concat(CustomString str1, CustomString str2)
         {
             int summOfLenght = str1.Length + str2.Length;
             CustomString result = new CustomString(summOfLenght);
+
             for (int i = 0; i < str1.Length; i++)
             {
                 result[i] = str1[i];
             }
+
             for (int i = 0; i < str2.Length; i++)
             {
                 result[str1.Length + i] = str2[i];
             }
             return result;
         }
-        // Реализация метода конвертации из массива символов
-        public static CustomString ToCustomString(char[] array)
+        // Implementing a conversion method from an array of characters
+        public static CustomString ToString(char[] array)
         {
             CustomString result = new CustomString(array.Length);
+
             for (int i = 0; i < array.Length; i++)
             {
                 result[i] = array[i];
             }
             return result;
         }
-        public static CustomString ToCustomString(CustomString str)
+        public static CustomString ToString(CustomString str)
         {
             CustomString result = new CustomString(str.Length);
+
             for (int i = 0; i < str.Length; i++)
             {
                 result[i] = str[i];
             }
             return result;
         }
-        // Реализация метода конвертации в массив символов
+        // Implementation of the conversion method to an array of characters
         public static char[] ToArray(CustomString str)
         {
             char[] result = new char[str.Length];
+
             for (int i = 0; i < str.Length; i++)
             {
                 result[i] = str[i];
             }
             return result;
         }
-        // Реализация метода поиска символа
+        // Implementation of the symbol search method
         public int FindLiteral(char literal)
         {
             for (int i = 0; i < this.Length; i++)
+            {
                 if (literals[i] == literal)
+                {
                     return i + 1;
+                }
+            }
             return -1;
         }
         // *"Подумайте, какие функции вы бы добавили к имеющемуся в .NET функционалу строк (достаточно 1-2 функций)"
-        // Реализация метода реверсирования строки
-        public static CustomString CustomReverse(CustomString str)
+        // Implementation of the string reversal method
+        public static CustomString Reverse(CustomString str)
         {
             char[] strToArray = ToArray(str);
             Array.Reverse(strToArray);
-            return ToCustomString(strToArray);
+            return ToString(strToArray);
         }
         #endregion
 
         #region Reload operator
-        // перегрузка оператора +
-        public static CustomString operator +(CustomString str1, CustomString str2)
+        // overloading the + operator
+        public static CustomString operator + (CustomString str1, CustomString str2)
         {
             int summOfLenght = str1.Length + str2.Length;
 
@@ -167,11 +196,52 @@ namespace CustomStringLibrary
             {
                 result[i] = str1[i];
             }
+
             for (int i = 0; i < str2.Length; i++)
             {
                 result[str1.Length + i] = str2[i];
             }
             return result;
+        }
+
+        // overloading the == operator
+        public static bool operator == (CustomString str1, CustomString str2)
+        {
+            int count = 0;
+            char[] ch1 = ToArray(str1);
+            char[] ch2 = ToArray(str2);
+            if(ch1.Length == ch2.Length)
+            {
+                for (int i = 0; i < ch1.Length; i++)
+                {
+                    if (ch1[i] == ch2[i])
+                    {
+                        count++;
+                    }
+                }
+            }
+            if(count == ch1.Length)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        // overloading the != operator
+        public static bool operator !=(CustomString str1, CustomString str2)
+        {
+            return !(str1 == str2);
+        }
+
+        // overloading the methods Equals() and GetHashCode(), so that there are no warnings
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
         #endregion
     }

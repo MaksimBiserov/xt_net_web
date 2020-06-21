@@ -2,7 +2,6 @@
 
 namespace Task_2_1_2_CUSTOM_PAINT
 {
-    // Окружность
     class Round : Shape
     {
         double radius = 0;
@@ -11,6 +10,12 @@ namespace Task_2_1_2_CUSTOM_PAINT
         public double Length { get; set; }
         public Round()
         {
+            CreateShape();
+            Radius = radius;
+            Length = Math.PI * 2 * Radius;
+        }
+        public override void CreateShape()
+        {
             Console.WriteLine("Координаты центра");
             Center = new Point();
             Console.WriteLine("Введите длину радиуса");
@@ -18,8 +23,6 @@ namespace Task_2_1_2_CUSTOM_PAINT
             {
                 Console.WriteLine("Ошибка ввода! Введите неотрицательное число");
             }
-            Radius = radius;
-            Length = Math.PI * 2 * Radius;
             Console.WriteLine("Фигура создана!");
             Console.WriteLine();
         }

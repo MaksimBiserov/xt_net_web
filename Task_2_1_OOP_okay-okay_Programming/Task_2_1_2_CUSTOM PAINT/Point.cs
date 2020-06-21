@@ -2,8 +2,8 @@
 
 namespace Task_2_1_2_CUSTOM_PAINT
 {
-    // Класс, описывающий точку для задания координат.
-    // Экземпляры данного класса создаются в классах фигур для описания вершин или центра.
+    // Class that describes the point for setting coordinates.
+    // Instances of this class are created in shape classes to describe vertices or centers.
     class Point
     {
         double coordinateX = 0;
@@ -11,6 +11,19 @@ namespace Task_2_1_2_CUSTOM_PAINT
         public double X { get; }
         public double Y { get; }
         public Point()
+        {
+            CreatePoint();
+            X = coordinateX;
+            Y = coordinateY;
+        }
+        // Overloading the constructor with 2 input parameters
+        // used in the Rectangle and Square classes for calculating vertex coordinates.
+        public Point(double x, double y)
+        {
+            X = x;
+            Y = y;
+        }
+        public void CreatePoint()
         {
             Console.WriteLine("Введите координату X");
             while (!double.TryParse(Console.ReadLine(), out coordinateX))
@@ -22,15 +35,6 @@ namespace Task_2_1_2_CUSTOM_PAINT
             {
                 Console.WriteLine("Ошибка ввода! Введите число");
             }
-            X = coordinateX;
-            Y = coordinateY;
-        }
-        // Перегрузка конструктора с 2-мя входными параметрами
-        // используется в классах Rectangle и Square для вычисления координат вершин.
-        public Point(double x, double y)
-        {
-            X = x;
-            Y = y;
         }
         public override string ToString()
         {

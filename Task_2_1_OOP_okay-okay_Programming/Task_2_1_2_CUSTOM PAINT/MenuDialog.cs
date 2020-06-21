@@ -8,7 +8,7 @@ namespace Task_2_1_2_CUSTOM_PAINT
     {
         List<Shape> shapes = new List<Shape>();
         string login = null;
-        public void WorkRedactor() // метод взаимодействия с Пользователем
+        public void WorkRedactor() // method of interaction with the User
         {
             do
             {
@@ -55,7 +55,7 @@ namespace Task_2_1_2_CUSTOM_PAINT
             while (true);
         }
 
-        private void CreateShape() // метод добавления фигур
+        private void CreateShape() // method for adding shapes
         {
             Console.WriteLine("Выберите фигуру");
             Console.WriteLine("1. Линия");
@@ -97,7 +97,7 @@ namespace Task_2_1_2_CUSTOM_PAINT
                     break;
             }
         }
-        void Authorize() // реализация варианта со * - Добавление Пользователя
+        void Authorize() // the implementation of the variant with * - Add User
         {
             if (login == null)
             {
@@ -106,7 +106,7 @@ namespace Task_2_1_2_CUSTOM_PAINT
                 Console.WriteLine($"Добро пожаловать, {login}");
             }
         }
-        void DrawShapes() // Метод вывода фигур
+        void DrawShapes() // Method for drawing shapes
         {
             Console.WriteLine("Вывод фигур:");
 
@@ -117,7 +117,7 @@ namespace Task_2_1_2_CUSTOM_PAINT
                 Console.WriteLine(shape.ToString());
         }
 
-        void ClearCanvas() // Метод очистки холста (списка)
+        void ClearCanvas() // Method for clearing the canvas (list)
         {
             shapes.Clear();
         }
