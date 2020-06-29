@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_3_1_1_WEAKEST LINK", "3_1_1_WEAKEST LINK\Task_3_1_1_WEAKEST LINK.csproj", "{B6B7ACA3-B34B-45C2-85B2-0124C71991A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6B7ACA3-B34B-45C2-85B2-0124C71991A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6B7ACA3-B34B-45C2-85B2-0124C71991A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6B7ACA3-B34B-45C2-85B2-0124C71991A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6B7ACA3-B34B-45C2-85B2-0124C71991A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {242C2E6D-D103-4C0B-8397-7C658EBB615E}
+	EndGlobalSection
+EndGlobal
