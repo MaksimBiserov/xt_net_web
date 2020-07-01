@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B6B7ACA3-B34B-45C2-85B2-0124C71991A6}</ProjectGuid>
+    <ProjectGuid>{6422B5F7-4449-4C05-BD0E-336E83D433CF}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_3_1_1_WEAKEST_LINK</RootNamespace>
-    <AssemblyName>3_1_1_WEAKEST LINK</AssemblyName>
+    <RootNamespace>Example</RootNamespace>
+    <AssemblyName>Example</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,8 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Participant.cs" />
-    <Compile Include="Playing.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
