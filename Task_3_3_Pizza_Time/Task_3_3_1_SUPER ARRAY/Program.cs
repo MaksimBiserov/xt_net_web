@@ -1,5 +1,4 @@
-﻿using System;
-using static System.Console;
+﻿using static System.Console;
 
 namespace Task_3_3_1_SUPER_ARRAY
 {
