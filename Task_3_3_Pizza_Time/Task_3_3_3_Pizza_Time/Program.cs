@@ -2,7 +2,7 @@
 
 namespace Task_3_3_3_Pizza_Time
 {
-    public delegate void OrdersHandler();
+    public delegate void OrdersHandler(Menu order);
 
     internal class Program
     {
