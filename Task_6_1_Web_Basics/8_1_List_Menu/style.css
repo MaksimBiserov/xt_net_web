@@ -1,6 +1,6 @@
 nav {
     height: 200px;
-    font-family: TimesNewRoman, "Times New Roman", Times, Georgia, serif;
+    font-family: "Times New Roman", serif, "Times New Roman", Times, Georgia;
     font-size: 17px;
 }
 
@@ -9,11 +9,11 @@ a {
     color:rgb(136, 0, 0);
 }
 
-A:visited {
+a:visited {
     color:rgb(136, 0, 0);
 }
 
-A:active {
+a:active {
     color:rgb(136, 0, 0);
 }
 
