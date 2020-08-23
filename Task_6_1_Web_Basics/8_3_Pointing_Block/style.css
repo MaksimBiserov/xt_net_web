@@ -1,0 +1,41 @@
+
+body
+{
+    background: #333333;
+}
+
+.arrow
+{
+    position: relative;
+    background-color: #88B7D5;
+    border: 5px solid #C2E1F5;
+    margin-top: 60px;
+    padding: 35px 0px 35px 0px;
+    text-align: center;
+    font-size: 20px;
+    color: #fffbf1;
+}
+
+.arrow:before
+{
+    
+    position: absolute;
+    content: "";
+    left: calc(50% - 30px);
+	top: -45px;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-bottom: 45px solid #C2E1F5;
+}
+
+.arrow:after
+{
+    
+    position: absolute;
+    content: "";
+    left: calc(50% - 30px);
+    top: -37px;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-bottom: 45px solid #88B7D5;
+}
