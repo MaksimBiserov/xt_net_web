@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>G-KEEP</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="pageContainer">
+
+        <div class="searchField">
+            <div class="searchString">
+                <div><img src="img/search.png"/></div>
+                <input type="search" placeholder="Поиск" />
+            </div>
+        </div>
+
+        <div class="memoContainer"> <!--container for displaying memo-->
+        </div>
+
+        <button class="addMemo">+</button>
+
+        <div class="modal" id="modalID">
+            <div id="modalContainer">
+                <div class="modalWindow">
+                    <div class="memoHeader"><input type="text" id="inHead" placeholder="Введите заголовок"></div>
+                    <div class="memoText"><textarea id="inText" placeholder="Содержание"></textarea></div>
+
+                    <div class="modalButtons">
+                        <button class="closing">Закрыть</button>
+                        <button class="saving">Сохранить</button>
+                    </div>
+
+                    <input type="hidden" id="hiddenID" class="hiddenClass"/>
+                </div>
+            </div>
+        </div>
+
+        <script src="Mini_Crud_library.js"></script>
+        <script src="index.js"></script>
+    </div>
+</body>
+</html>

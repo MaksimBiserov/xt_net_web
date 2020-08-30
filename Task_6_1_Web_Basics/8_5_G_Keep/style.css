@@ -1,0 +1,166 @@
+
+input[type=search]
+{
+    border: 0px;
+    background-color: #d3d3d3;
+    font-size: 18px;
+    width: 400px;
+    padding: 10px 10px 10px 10px;
+}
+
+input[type=text]
+{
+    width: 320px;
+    height: 25px;
+    border: 0px;
+    font-size: 18px;
+}
+
+.searchString
+{
+    width: 600px;
+    background-color: #d3d3d3;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.searchString img
+{
+    margin-right: 20px;
+}
+
+.searchField
+{
+    border-top: solid 2px #d3d3d3;
+    border-bottom: solid 1px #d3d3d3;
+    padding: 5px;
+    text-align:center;
+}
+
+.addMemo
+{
+    text-decoration: none;
+    color: #ffffff;
+    background: #0000ff;
+    width:80px;
+    height:80px;
+    border-radius:40px;
+    display: inline-block;
+    text-align: center;
+    font-size: 51pt;
+    position: absolute;
+    bottom: 70pt;
+    right: 70pt;
+    border: 0pt;
+}
+
+button:focus
+{
+    outline: none;
+}
+
+.modal
+{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.modal:target
+{
+    display: block;
+    pointer-events: auto;
+    z-index: 9999;
+}
+
+.modalWindow
+{
+    display: block;
+    background-color: #ffffff;
+    width: 500px;
+    height: 200px;
+    border: 2px solid #d3d3d3;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.modal #modalContainer .modalButtons
+{
+    margin-top: 2px solid #d3d3d3;
+}
+
+.saving, .closing
+{
+    background-color:  #d3d3d3;
+    border: 0px;
+    width: 80px;
+    height: 25px;
+    border-radius: 3px;
+    float: right;
+    margin-right: 25px;
+    font-size: 14px;
+    margin: 5px;
+}
+
+.memoHeader
+{
+    margin: 8px;
+    border: 0px;
+    width: 100%;
+}
+  
+.memoText
+{
+    margin: 8px;
+    height: 55%;
+    border: 0px;
+}
+
+textarea
+{
+    resize: none;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+    border: 0px;
+}
+
+.pageContainer
+{
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.memo
+{
+    overflow: hidden;
+    border: 2px solid #d3d3d3;
+    border-radius: 5px;
+    width: 600px;
+    margin: 7px;
+    padding: 10px;
+}
+
+.trash
+{
+    float: right;
+    padding: 10px;
+    border: 0px;
+    background-color: #d3d3d3;
+    border-radius: 5px;
+}
