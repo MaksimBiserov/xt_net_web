@@ -1,0 +1,103 @@
+﻿@using UsersAndAwards.Dependences;
+
+@{
+    Layout = "~/_Layout.cshtml";
+    var userLogic = DependencyResolver.UserLogic;
+    var awardLogic = DependencyResolver.AwardLogic;
+    var bindingUserAward = DependencyResolver.BindingUserAwardLogic;
+    string errorMessage = null;
+    var user = Request["userID"];
+    var award = Request["awardID"];
+
+    if (IsPost)
+    {
+        Guid userID = Guid.Parse(user);
+        Guid awardID = Guid.Parse(award);
+        var checkUser = userLogic.GetAll().Where(item => item.ID == userID).Count();
+        var checkAward = bindingUserAward.GetAll(userID).Where(item => item.AwardID == awardID).Count();
+
+        if (checkAward == 0 && checkUser != 0)
+        {
+            bindingUserAward.Add(userID, awardID);
+            Response.Redirect("~");
+        }
+
+        else
+        {
+            errorMessage = "The user was not found or already has this award";
+        }
+    }
+}
+
+@if (errorMessage != null)
+{
+    <div id="modalVisible">
+        @errorMessage
+        <a href="~/Pages/AddAwardToUser.cshtml" class="close">Close</a>
+    </div>
+}
+
+<div class="crudContainer">
+    <form action="~/Pages/AddAwardToUser.cshtml" method="post">
+
+        <div>
+            <label class="crudHead">Id User</label>
+            <div>
+                <input class="crudInput" type="text" name="userID" value="@user" required>
+            </div>
+            
+        </div>
+        <div>
+            <label class="crudHead">Id Award</label>
+            <div>
+                <input class="crudInput" type="text" name="awardID" value="@award" required>
+            </div>
+            
+        </div>
+        <button class="crudButton">Add</button>
+    </form>
+    <div>
+        <div>
+            <p class="crudHead">Users</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var users in userLogic.GetAll().ToList())
+                {
+                    <tr>
+                        <th scope="row">@users.ID</th>
+                        <td>@users.Name</td>
+                        <td>@users.Age</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div>
+            <p class="crudHead">Awards</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var awards in awardLogic.GetAll().ToList())
+                {
+                    <tr>
+                        <th scope="row">@awards.ID</th>
+                        <td>@awards.Title</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

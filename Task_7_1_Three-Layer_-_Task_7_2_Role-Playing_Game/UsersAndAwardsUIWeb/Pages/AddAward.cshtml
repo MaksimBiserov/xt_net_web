@@ -1,0 +1,31 @@
+﻿@using UsersAndAwards.Dependences;
+
+@{
+    Layout = "~/_Layout.cshtml";
+    var award = DependencyResolver.AwardLogic;
+    string titleAward = Request["title"];
+
+    if (IsPost)
+    {
+        award.Add(new UsersAndAwards.Entities.Award()
+        {
+            Title = titleAward
+        });
+
+        Response.Redirect("~");
+    }
+}
+
+    <form class="crudContainer" action="~/Pages/AddAward.cshtml" enctype="multipart/form-data" method="post">
+        <div>
+            <label class="crudHead">Title of award</label>
+            <div>
+                <input class="crudInput" type="text" name="title" id="title" value=@titleAward required>
+            </div>
+        </div>
+        <div>
+            <div>
+                <button class="crudButton">Add</button>
+            </div>
+        </div>
+    </form>

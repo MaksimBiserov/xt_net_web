@@ -1,0 +1,63 @@
+﻿@using UsersAndAwards.Dependences;
+
+@{
+    Layout = "~/_Layout.cshtml";
+    var awardLogic = DependencyResolver.AwardLogic;
+    var bindingAwardUsers = DependencyResolver.BindingUserAwardLogic;
+    var awardID = Request["awardID"];
+}
+
+<div class="crudContainer">
+    <form action="~/Pages/RemoveAward.cshtml" method="post">
+        <div>
+            <label class="crudHead">Id Award</label>
+            <div>
+                <input class="crudInput" type="text" name="awardID" value="@awardID" required>
+            </div>
+        </div>
+
+        <div id="modal">
+            <div>
+                <h4>Do you really want to delete this award?</h4>
+                <button class="close">Delete</button>
+                <a href="~/Pages/RemoveAward.cshtml" class="close">Close</a>
+            </div>
+        </div>
+
+        <a href="#modal" class="crudButton">Delete award</a>
+
+        @if (IsPost)
+        {
+            Guid iD = Guid.Parse(awardID);
+            <div>
+                Award removed from all users
+            </div>
+            bindingAwardUsers.DeleteAward(iD);
+            awardLogic.DeleteById(iD);
+            Response.Redirect("~");
+        }
+    </form>
+
+    <div>
+        <div>
+            <p class="crudHead">Awards</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var awards in awardLogic.GetAll().ToList())
+                {
+                    <tr>
+                        <th scope="row">@awards.ID</th>
+                        <td>@awards.Title</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

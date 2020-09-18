@@ -1,0 +1,68 @@
+﻿@using UsersAndAwards.Dependences;
+
+@{
+    Layout = "~/_Layout.cshtml";
+    var userLogic = DependencyResolver.UserLogic;
+    var awarduserLogic = DependencyResolver.BindingUserAwardLogic;
+    var userID = Request["userID"];
+}
+
+<div class="crudContainer">
+    <form action="~/Pages/RemoveUser.cshtml" method="post">
+        <div>
+            <label class="crudHead">Id User</label>
+            <div>
+                <input class="crudInput" type="text" name="userID" value="@userID" required>
+            </div>
+        </div>
+
+        <div id="modal">
+            <div>
+                <h4>Do you really want to delete this user?</h4>
+                <button class="close">Delete</button>
+                <a href="~/Pages/RemoveUser.cshtml" class="close">Close</a>
+            </div>
+        </div>
+
+        <a href="#modal" class="crudButton">Delete user</a>
+
+        @if (IsPost)
+        {
+            Guid iD = Guid.Parse(userID);
+
+            if (!string.IsNullOrWhiteSpace(userID))
+            {
+                awarduserLogic.DeleteUser(Guid.Parse(userID));
+                userLogic.DeleteById(Guid.Parse(userID));
+                Response.Redirect("~");
+            }
+
+            else
+            {
+                Response.Redirect("~");
+            }
+        }
+    </form>
+    <div>
+        <div>
+            <p class="crudHead">Users</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var users in userLogic.GetAll().ToList())
+                {
+                    <tr>
+                        <th scope="row">@users.ID</th>
+                        <td>@users.Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

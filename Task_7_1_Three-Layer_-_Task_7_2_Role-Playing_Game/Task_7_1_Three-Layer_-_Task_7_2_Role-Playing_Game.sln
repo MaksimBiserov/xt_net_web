@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersAndAwards.BLL.Interfac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersAndAwards.Dependences", "UsersAndAwards.Dependences\UsersAndAwards.Dependences.csproj", "{66AEDA96-C46A-4BD0-8F59-BA0A8A2BE604}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersAndAwardsUIWeb", "UsersAndAwardsUIWeb\UsersAndAwardsUIWeb.csproj", "{7EF95461-D8B4-4A14-9BA9-8DB3A7EE90BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{66AEDA96-C46A-4BD0-8F59-BA0A8A2BE604}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66AEDA96-C46A-4BD0-8F59-BA0A8A2BE604}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66AEDA96-C46A-4BD0-8F59-BA0A8A2BE604}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EF95461-D8B4-4A14-9BA9-8DB3A7EE90BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EF95461-D8B4-4A14-9BA9-8DB3A7EE90BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EF95461-D8B4-4A14-9BA9-8DB3A7EE90BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EF95461-D8B4-4A14-9BA9-8DB3A7EE90BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +77,7 @@ Global
 		{E8471FEC-41A6-4AA7-9A87-0A68057A951C} = {7738F95D-9A7E-4D91-89DF-898A038E5EE6}
 		{CF3512C7-F479-4B59-82EF-9E955749CA72} = {8C4C4F60-6CC0-498F-B528-BE07F32EEF03}
 		{66AEDA96-C46A-4BD0-8F59-BA0A8A2BE604} = {7FEB6CD3-11EF-4D8B-A816-5BEF17D47749}
+		{7EF95461-D8B4-4A14-9BA9-8DB3A7EE90BB} = {7738F95D-9A7E-4D91-89DF-898A038E5EE6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D8645474-FFBA-4838-A33E-D64997689ED3}
