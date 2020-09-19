@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Award.cs" />
     <Compile Include="BindingUserAward.cs" />
+    <Compile Include="Registrator.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

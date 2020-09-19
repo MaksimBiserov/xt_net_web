@@ -1,8 +1,9 @@
 ﻿@using UsersAndAwards.Dependences;
+@using UsersAndAwards.BLL.Interfaces;
 
 @{
     Layout = "~/_Layout.cshtml";
-    var awardLogic = DependencyResolver.AwardLogic;
+    IAwardLogic awardLogic = DependencyResolver.AwardLogic;
     string errorMessage = null;
     string iD = Request["iD"];
     string title = Request["title"];

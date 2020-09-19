@@ -91,12 +91,14 @@
     <Content Include="Styles\container.css" />
     <Content Include="Styles\crud.css" />
     <Content Include="Styles\head.css" />
+    <Content Include="Styles\logIn.css" />
     <Content Include="Styles\menu.css" />
     <Content Include="Styles\modal.css" />
     <Content Include="Styles\users.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\MyRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +111,12 @@
     <Content Include="Pages\RemoveUser.cshtml" />
     <Content Include="Pages\EditUser.cshtml" />
     <Content Include="Pages\EditAward.cshtml" />
+    <Content Include="Pages\Registrator.cshtml" />
+    <Content Include="Pages\Auth.cshtml" />
+    <Content Include="Pages\AddRoleAdmin.cshtml" />
+    <Content Include="Pages\AddRoleUser.cshtml" />
+    <Content Include="Pages\EditRole.cshtml" />
+    <Content Include="Pages\LogOut.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -121,6 +129,10 @@
     <ProjectReference Include="..\UsersAndAwards.BLL.Interfaces\UsersAndAwards.BLL.Interfaces.csproj">
       <Project>{cf3512c7-f479-4b59-82ef-9e955749ca72}</Project>
       <Name>UsersAndAwards.BLL.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UsersAndAwards.BLL\UsersAndAwards.BLL.csproj">
+      <Project>{35c9cb07-33f5-4254-b3e8-133c79d74d20}</Project>
+      <Name>UsersAndAwards.BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\UsersAndAwards.Dependences\UsersAndAwards.Dependences.csproj">
       <Project>{66aeda96-c46a-4bd0-8f59-ba0a8a2be604}</Project>

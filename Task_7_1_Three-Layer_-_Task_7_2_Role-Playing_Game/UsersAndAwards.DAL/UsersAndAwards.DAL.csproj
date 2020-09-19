@@ -47,6 +47,7 @@
     <Compile Include="AwardDAL.cs" />
     <Compile Include="BindingUserAwardDAL.cs" />
     <Compile Include="CreatorDefault.cs" />
+    <Compile Include="RegistratorDAL.cs" />
     <Compile Include="UserDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

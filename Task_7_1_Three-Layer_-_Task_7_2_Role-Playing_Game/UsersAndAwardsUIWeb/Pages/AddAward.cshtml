@@ -1,8 +1,9 @@
 ﻿@using UsersAndAwards.Dependences;
+@using UsersAndAwards.BLL.Interfaces;
 
 @{
     Layout = "~/_Layout.cshtml";
-    var award = DependencyResolver.AwardLogic;
+    IAwardLogic award = DependencyResolver.AwardLogic;
     string titleAward = Request["title"];
 
     if (IsPost)
@@ -16,16 +17,16 @@
     }
 }
 
-    <form class="crudContainer" action="~/Pages/AddAward.cshtml" enctype="multipart/form-data" method="post">
+<form class="crudContainer" action="~/Pages/AddAward.cshtml" enctype="multipart/form-data" method="post">
+    <div>
+        <label class="crudHead">Title of award</label>
         <div>
-            <label class="crudHead">Title of award</label>
-            <div>
-                <input class="crudInput" type="text" name="title" id="title" value=@titleAward required>
-            </div>
+            <input class="crudInput" type="text" name="title" id="title" value=@titleAward required>
         </div>
+    </div>
+    <div>
         <div>
-            <div>
-                <button class="crudButton">Add</button>
-            </div>
+            <button class="crudButton">Add</button>
         </div>
-    </form>
+    </div>
+</form>

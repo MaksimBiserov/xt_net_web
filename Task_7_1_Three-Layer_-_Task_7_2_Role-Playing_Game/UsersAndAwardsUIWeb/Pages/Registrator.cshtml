@@ -1,0 +1,64 @@
+﻿@using UsersAndAwards.Dependences;
+@using UsersAndAwards.BLL.Interfaces;
+
+@{
+    Layout = "~/_Layout.cshtml";
+    string errorMessage = null;
+    IRegistratorLogic regUser = DependencyResolver.RegistratorLogic;
+    string login = Request["login"];
+    string password = Request["password"];
+}
+
+@if (errorMessage != null)
+{
+    <div id="modalVisible">
+        @errorMessage
+        <a href="~/Pages/AddAwardToUser.cshtml" class="close">Close</a>
+    </div>
+}
+
+@if (IsPost)
+    {
+        if (!string.IsNullOrWhiteSpace(login) && !string.IsNullOrWhiteSpace(password))
+        {
+            regUser.AddRoleGuest(new UsersAndAwards.Entities.Registrator
+            {
+                Login = login,
+                Password = password,
+                Role = new string[] { "User" }
+            });
+
+            FormsAuthentication.SetAuthCookie(login, createPersistentCookie: true);
+            Response.Redirect("~");
+        }
+
+        else
+        {
+            errorMessage = "Enter your registration details";
+        }
+    }
+
+<div class="crudContainer">
+    <form action="~/Pages/Registrator" method="post">
+        <div>
+            <p class="crudHead">Registration</p>
+        </div>
+        <div>
+            <label class="crudHead">Login</label>
+            <div>
+                <input class="crudInput" type="text" id="login" name="login" value=@login required>
+            </div>
+        </div>
+        <div>
+            <label class="crudHead">Password</label>
+            <div>
+                <input class="crudInput" type="password" id="password" name="password" value=@password required>
+            </div>
+        </div>
+        <div>
+            <div>
+                <button class="crudButton">Registration</button>
+            </div>
+        </div>
+    </form>
+</div>

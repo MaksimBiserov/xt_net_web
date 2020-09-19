@@ -1,12 +1,21 @@
-﻿.menu {
-    margin-left: 300px;
+﻿
+.menu {
+    margin-left: 10px;
+    
 }
 .menu ul {
     list-style: none;
     margin: 0;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     margin-top: 10px;
+    
 }
+
+    .menu li {
+        display: inline-block;
+        padding: 5px;
+        padding-bottom: 20px;
+    }
 
 .menu a {
     text-decoration: none;
@@ -15,14 +24,10 @@
     border-radius: 5px;
     color: #ffffff;
     padding: 10px;
+    margin-bottom: 10px;
     font-family: arial;
 }
 
-    .menu a:hover {
-        background: #111111;
-    }
-
-.menu li {
-    float: left;
-    margin-right: 10px;
+.menu a:hover {
+    background: #111111;
 }

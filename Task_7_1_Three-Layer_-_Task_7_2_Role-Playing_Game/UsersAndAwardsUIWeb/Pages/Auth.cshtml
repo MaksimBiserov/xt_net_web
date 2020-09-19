@@ -1,0 +1,56 @@
+﻿@using UsersAndAwards.Dependences;
+
+@{
+    Layout = "~/_Layout.cshtml";
+    string login = null;
+    string password = null;
+    string errorMessage = null;
+    login = Request["login"];
+    password = Request["password"];
+
+    if (IsPost)
+    {
+        if (DependencyResolver.RegistratorLogic.ISAuth(login, password))
+        {
+            FormsAuthentication.SetAuthCookie(login, createPersistentCookie: true);
+            Response.Redirect("~");
+        }
+        else
+        {
+            errorMessage = "Login or password entered incorrectly";
+        }
+    }
+}
+
+@if (errorMessage != null)
+{
+    <div id="modalVisible">
+        @errorMessage
+        <a href="~/Pages/AddAwardToUser.cshtml" class="close">Close</a>
+    </div>
+}
+
+<div  class="crudContainer">
+    <form action="~/Pages/Auth.cshtml" method="post">
+        <div>
+            <div>
+                <label class="crudHead">Login</label>
+                <div>
+                    <input class="crudInput" type="text" name="login" value=@login required>
+                </div>
+            </div>
+            <div>
+                <label class="crudHead">Password</label>
+                <div>
+                    <input class="crudInput" type="password" name="password" value=@password required>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <button class="crudButton">Log in</button>
+                </div>
+            </div>
+            <a href="~/Pages/Registrator.cshtml" class="crudButton">Registration</a>
+        </div>
+    </form>
+</div>

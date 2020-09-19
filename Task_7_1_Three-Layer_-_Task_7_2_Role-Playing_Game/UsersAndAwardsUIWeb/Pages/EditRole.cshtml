@@ -1,0 +1,40 @@
+﻿@using UsersAndAwards.Dependences;
+@using UsersAndAwards.BLL.Interfaces;
+
+@{
+    Layout = "~/_Layout.cshtml";
+    IRegistratorLogic users = DependencyResolver.RegistratorLogic;
+    string userID = Request["userID"];
+    string role = Request["role"];
+}
+
+<form action="~/Pages/EditRole.cshtml" method="post">
+    <div class="container">
+        @foreach (var user in users.GetAll().ToList())
+        {
+
+            <div class="users">
+                <div>
+                    <h4>User ID: @user.ID</h4>
+                </div>
+                <ul>
+                    <li>Login: @user.Login</li>
+                    <li>Password: @user.Password</li>
+                    <li>Role: @user.Role[0]</li>
+                </ul>
+
+                @if (user.Role[0] == "User")
+                {
+                    <label>Change role:</label>
+                    <button class="close" name="userID" formaction="AddRoleAdmin.cshtml" value="@user.ID" onclick="location.href = 'AddRoleAdmin.cshtml';">Admin</button>
+                }
+
+                else
+                {
+                    <label>Change role:</label>
+                    <button class="close" name="userID" formaction="AddRoleUser.cshtml" value="@user.ID" onclick="location.href = 'AddRoleUser.cshtml';">User</button>
+                }
+            </div>
+        }
+    </div>
+</form>

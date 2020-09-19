@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="IAwardDAL.cs" />
     <Compile Include="IBindingUserAwardDAL.cs" />
+    <Compile Include="IRegistratorDAL.cs" />
     <Compile Include="IUserDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

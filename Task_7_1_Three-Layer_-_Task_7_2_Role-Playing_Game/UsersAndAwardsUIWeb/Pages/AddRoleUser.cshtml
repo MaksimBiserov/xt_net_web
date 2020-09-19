@@ -1,0 +1,18 @@
+﻿@using UsersAndAwards.Dependences;
+@using UsersAndAwards.BLL.Interfaces;
+
+@{
+    IRegistratorLogic regUser = DependencyResolver.RegistratorLogic;
+    string userID = Request["userID"];
+
+    if (string.IsNullOrWhiteSpace(userID))
+    {
+        Response.Redirect("~/Pages/EditRole.cshtml");
+    }
+
+    else
+    {
+        regUser.AddRoleUser(Guid.Parse(userID));
+        Response.Redirect("~/Pages/EditRole.cshtml");
+    }
+}

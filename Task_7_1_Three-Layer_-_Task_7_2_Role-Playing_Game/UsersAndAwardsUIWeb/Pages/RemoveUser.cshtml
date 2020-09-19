@@ -1,9 +1,10 @@
 ﻿@using UsersAndAwards.Dependences;
+@using UsersAndAwards.BLL.Interfaces;
 
 @{
     Layout = "~/_Layout.cshtml";
-    var userLogic = DependencyResolver.UserLogic;
-    var awarduserLogic = DependencyResolver.BindingUserAwardLogic;
+    IUserLogic userLogic = DependencyResolver.UserLogic;
+    IBindingUserAwardLogic awarduserLogic = DependencyResolver.BindingUserAwardLogic;
     var userID = Request["userID"];
 }
 

@@ -20,6 +20,7 @@ namespace UsersAndAwards.DAL
         public Guid Add(Award award)
         {
             award.ID = Guid.NewGuid();
+
             using (var streamWriter = new StreamWriter(CreatorDefault.PathAward))
             {
                 streamWriter.WriteLine(JsonConvert.SerializeObject(award));

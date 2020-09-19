@@ -1,24 +1,24 @@
 ﻿
 .users {
     background-color: #a8d9fc;
-    margin: 10px;
+    margin: 5px;
     border: 1px solid black;
     border-radius: 5px;
-    margin-left: 10px;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     float: left;
     width: 20%;
     height: 35%;
     display: table-cell;
     vertical-align: middle;
+    word-wrap: break-word;
 }
 
     .users ul {
-        margin: 10px;
+        margin: 1px;
     }
 
     .users li {
         list-style: none;
-        margin: 10px;
+        margin: 1px;
     }

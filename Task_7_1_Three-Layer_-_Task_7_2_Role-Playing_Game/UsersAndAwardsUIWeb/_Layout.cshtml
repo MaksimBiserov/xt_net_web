@@ -10,14 +10,46 @@
     <link rel="stylesheet" type="text/css" href="~/Styles/container.css" />
     <link rel="stylesheet" type="text/css" href="~/Styles/crud.css" />
     <link rel="stylesheet" type="text/css" href="~/Styles/modal.css" />
+    <link rel="stylesheet" type="text/css" href="~/Styles/logIn.css" />
     <title></title>
 </head>
 
 <body>
     <div>
         <div class="header">
-            <a href="~/index.cshtml"><label>Users and Awards. Implementation in the web</label></a>
+            <a href="~/index.cshtml"><label>Users and Awards</label></a>
         </div>
+        <div class="menu">
+
+            @if (User.IsInRole("Admin"))
+            {
+            <nav>
+                <ul>
+                    <li><a href="~/Pages/AddUser.cshtml"><label>Add User</label></a></li>
+                    <li><a href="~/Pages/AddAward.cshtml"><label>Add Award</label></a></li>
+                    <li><a href="~/Pages/AddAwardToUser.cshtml"><label>Add award to user</label></a></li>
+                    <li><a href="~/Pages/EditUser.cshtml"><label>Edit User</label></a></li>
+                    <li><a href="~/Pages/EditAward.cshtml"><label>Edit Award</label></a></li>
+                    <li><a href="~/Pages/RemoveAward.cshtml"><label>Remove Award</label></a></li>
+                    <li><a href="~/Pages/RemoveUser.cshtml"><label>Remove User</label></a></li>
+                    <li><a href="~/Pages/EditRole.cshtml"><label>Edit role</label></a></li>
+                    <li><a href="~/Pages/LogOut.cshtml"><label>Log out</label></a></li>
+                </ul>
+            </nav>
+            }
+
+            else if (User.IsInRole("User"))
+            {
+                <a href="~/Pages/LogOut.cshtml" class="crudButton">Log out</a>
+            }
+
+            else
+            {
+                <a href="~/Pages/Auth.cshtml" class="login">Log in</a>
+            }
+
+        </div>
+
     </div>
     <div>
         @RenderBody()

@@ -1,57 +1,55 @@
 ﻿@using UsersAndAwards.Dependences;
+@using UsersAndAwards.BLL.Interfaces;
 
 @{
     Layout = "~/_Layout.cshtml";
-
-    var userLogic = DependencyResolver.UserLogic;
-    var bindingUserAward = DependencyResolver.BindingUserAwardLogic;
-    var awardLogic = DependencyResolver.AwardLogic;
+    IUserLogic userLogic = DependencyResolver.UserLogic;
+    IAwardLogic awardLogic = DependencyResolver.AwardLogic;
+    IBindingUserAwardLogic bindingUserAward = DependencyResolver.BindingUserAwardLogic;
 }
 
 <body>
     <form action="~/index.cshtml" method="post">
-        <div class="menu">
-            @{
-                <ul>
-                    <li><a href="~/Pages/AddUser.cshtml"><label>Add User</label></a></li>
-                    <li><a href="~/Pages/AddAward.cshtml"><label>Add Award</label></a></li>
-                    <li><a href="~/Pages/AddAwardToUser.cshtml"><label>Add award to user</label></a></li>
-                    <li><a href="~/Pages/EditUser.cshtml"><label>Edit User</label></a></li>
-                    <li><a href="~/Pages/EditAward.cshtml"><label>Edit Award</label></a></li>
-                    <li><a href="~/Pages/RemoveAward.cshtml"><label>Remove Award</label></a></li>
-                    <li><a href="~/Pages/RemoveUser.cshtml"><label>Remove User</label></a></li>
-                </ul>
-            }
-        </div>
-        <div class="container">
-            @foreach (var user in userLogic.GetAll().ToList())
-            {
-                <div class="users">
-                    <img src="~/Images/user.png">
-                    <div>
-                        <h4>User: @user.Name</h4>
+
+        @if (User.IsInRole("User") || User.IsInRole("Admin"))
+        {
+            <div class="container">
+                @foreach (var user in userLogic.GetAll().ToList())
+                {
+                    <div class="users">
+                        <img src="~/Images/user.png">
+                        <div>
+                            <h4>User: @user.Name</h4>
+                        </div>
+                        <ul>
+                            <li>Age: @user.Age</li>
+                            <li>Date Of Birth: @user.DateOfBirth.ToShortDateString()</li>
+                            <li>
+                                Awards:
+                                @{
+                                    var usersAwards = from bindingAward in bindingUserAward.GetAll(user.ID)
+                                                      join award in awardLogic.GetAll() on bindingAward.AwardID equals award.ID
+                                                      select (award);
+                                }
+
+                                @foreach (var award in usersAwards)
+                                {
+                                    <div>
+                                        <img src="~/Images/award.png" width="35" height="35">
+                                        <p>@award.Title</p>
+                                    </div>
+                                }
+                            </li>
+                        </ul>
                     </div>
-                    <ul>
-                        <li>Age: @user.Age</li>
-                        <li>Date Of Birth: @user.DateOfBirth.ToShortDateString()</li>
-                        <li>
-                            Awards:
-                            @{
-                                var usersAwards = from bindingAward in bindingUserAward.GetAll(user.ID)
-                                                  join award in awardLogic.GetAll() on bindingAward.AwardID equals award.ID
-                                                  select (award);
-                            }
-                            @foreach (var award in usersAwards)
-                            {
-                                <div>
-                                    <img src="~/Images/award.png" width="35" height="35">
-                                    <p>@award.Title</p>
-                                </div>
-                            }
-                        </li>
-                    </ul>
-                </div>
-            }
-        </div>
+                }
+            </div>
+         }
+
+         else
+         {
+            Response.Redirect("~/Pages/Registrator.cshtml");
+         }
+
     </form>
 </body>

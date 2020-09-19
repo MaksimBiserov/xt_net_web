@@ -1,10 +1,11 @@
 ﻿@using UsersAndAwards.Dependences;
+@using UsersAndAwards.BLL.Interfaces;
 
 @{
     Layout = "~/_Layout.cshtml";
-    var userLogic = DependencyResolver.UserLogic;
-    var awardLogic = DependencyResolver.AwardLogic;
-    var bindingUserAward = DependencyResolver.BindingUserAwardLogic;
+    IUserLogic userLogic = DependencyResolver.UserLogic;
+    IAwardLogic awardLogic = DependencyResolver.AwardLogic;
+    IBindingUserAwardLogic bindingUserAward = DependencyResolver.BindingUserAwardLogic;
     string errorMessage = null;
     var user = Request["userID"];
     var award = Request["awardID"];
@@ -45,7 +46,7 @@
             <div>
                 <input class="crudInput" type="text" name="userID" value="@user" required>
             </div>
-            
+
         </div>
         <div>
             <label class="crudHead">ID Award</label>

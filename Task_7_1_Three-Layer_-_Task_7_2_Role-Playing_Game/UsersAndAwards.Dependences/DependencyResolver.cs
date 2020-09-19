@@ -13,6 +13,8 @@ namespace UsersAndAwards.Dependences
         public static IAwardDAL AwardDAL { get; private set; }
         public static IBindingUserAwardLogic BindingUserAwardLogic { get; private set; }
         public static IBindingUserAwardDAL BindingUserAwardDAL { get; private set; }
+        public static IRegistratorLogic RegistratorLogic { get; private set; }
+        public static IRegistratorDAL RegistratorDAL { get; private set; }
 
         static DependencyResolver()
         {
@@ -22,6 +24,8 @@ namespace UsersAndAwards.Dependences
             AwardLogic = new AwardLogic(AwardDAL);
             BindingUserAwardDAL = new BindingUserAwardDAL();
             BindingUserAwardLogic = new BindingUserAwardLogic(BindingUserAwardDAL);
+            RegistratorDAL = new RegistratorDAL();
+            RegistratorLogic = new RegistratorLogic(RegistratorDAL);
         }
     }
 }
