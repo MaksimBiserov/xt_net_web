@@ -107,6 +107,8 @@
     <Content Include="Pages\AddUser.cshtml" />
     <Content Include="Pages\RemoveAward.cshtml" />
     <Content Include="Pages\RemoveUser.cshtml" />
+    <Content Include="Pages\EditUser.cshtml" />
+    <Content Include="Pages\EditAward.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

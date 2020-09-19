@@ -10,5 +10,6 @@ namespace UsersAndAwards.BLL.Interfaces
         void DeleteById(Guid id);
         IEnumerable<User> GetAll();
         User GetById(Guid id);
+        void EditUser(Guid userID, string name, DateTime dateOfBirth);
     }
 }

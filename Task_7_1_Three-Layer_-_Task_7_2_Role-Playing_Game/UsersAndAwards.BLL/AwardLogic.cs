@@ -10,6 +10,7 @@ namespace UsersAndAwards.BLL
     public class AwardLogic : IAwardLogic
     {
         private readonly IAwardDAL awardDAL;
+
         public AwardLogic(IAwardDAL awardDAL)
         {
             this.awardDAL = awardDAL;
@@ -33,6 +34,11 @@ namespace UsersAndAwards.BLL
         public Award GetById(Guid id)
         {
             return awardDAL.GetAll().FirstOrDefault(item => item.ID == id);
+        }
+
+        public void EditAward(Guid awardID, string title)
+        {
+            awardDAL.EditAward(awardID, title);
         }
     }
 }

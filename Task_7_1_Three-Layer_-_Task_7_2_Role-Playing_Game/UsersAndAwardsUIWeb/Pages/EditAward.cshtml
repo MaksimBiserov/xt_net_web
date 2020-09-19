@@ -1,0 +1,81 @@
+﻿@using UsersAndAwards.Dependences;
+
+@{
+    Layout = "~/_Layout.cshtml";
+    var awardLogic = DependencyResolver.AwardLogic;
+    string errorMessage = null;
+    string iD = Request["iD"];
+    string title = Request["title"];
+
+    if (IsPost)
+    {
+        Guid awardID = Guid.Parse(iD);
+
+        if (awardLogic.GetAll().Where(item => item.ID == awardID).Count() == 0)
+        {
+            errorMessage = "It is forbidden to change the ID value";
+        }
+
+        else
+        {
+            var itemAward = awardLogic.GetById(awardID);
+
+            if (string.IsNullOrWhiteSpace(title))
+            {
+                title = itemAward.Title;
+            }
+
+            awardLogic.EditAward(awardID, title);
+            Response.Redirect("~");
+        }
+    }
+}
+
+@if (errorMessage != null)
+{
+    <div id="modalVisible">
+        @errorMessage
+        <a href="~/Pages/EditAward.cshtml" class="close">Close</a>
+    </div>
+}
+
+<div class="crudContainer">
+    <form action="~/Pages/EditAward.cshtml" method="post">
+        <div>
+            <label class="crudHead">ID Award</label>
+            <div>
+                <input class="crudInput" type="text" name="iD" value="@iD" required>
+            </div>
+        </div>
+        <div>
+            <label class="crudHead">Title</label>
+            <div>
+                <input class="crudInput" type="text" name="title" value="@title" required>
+            </div>
+        </div>
+        <button class="crudButton">Edit</button>
+    </form>
+
+    <div>
+        <div>
+            <p class="crudHead">Awards</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var awards in awardLogic.GetAll().ToList())
+                {
+                    <tr>
+                        <th scope="row">@awards.ID</th>
+                        <td>@awards.Title</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

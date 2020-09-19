@@ -9,5 +9,6 @@ namespace UsersAndAwards.DAL.Interfaces
         Guid Add(User user);
         void DeleteById(Guid id);
         IEnumerable<User> GetAll();
+        void EditUser(Guid userID, string name, DateTime dateOfBirth);
     }
 }

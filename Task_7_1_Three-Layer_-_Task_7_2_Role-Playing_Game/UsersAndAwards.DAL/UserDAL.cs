@@ -59,5 +59,24 @@ namespace UsersAndAwards.DAL
                 }
             }
         }
+
+        public void EditUser(Guid userID, string name, DateTime dateOfBirth)
+        {
+            users[userID] = new User()
+            {
+                ID = userID,
+                Name = name,
+                DateOfBirth = dateOfBirth,
+                Age = DateTime.Now.Year - dateOfBirth.Year,
+            };
+
+            using (var streamWriter = new StreamWriter(CreatorDefault.PathUser))
+            {
+                foreach (var item in users.Values)
+                {
+                    streamWriter.WriteLine(JsonConvert.SerializeObject(item));
+                }
+            }
+        }
     }
 }

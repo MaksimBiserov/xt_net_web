@@ -58,5 +58,22 @@ namespace UsersAndAwards.DAL
                 }
             }
         }
+
+        public void EditAward(Guid awardID, string title)
+        {
+            awards[awardID] = new Award()
+            {
+                ID = awardID,
+                Title = title
+            };
+
+            using (var streamWriter = new StreamWriter(CreatorDefault.PathAward))
+            {
+                foreach (var item in awards.Values)
+                {
+                    streamWriter.WriteLine(JsonConvert.SerializeObject(item));
+                }
+            }
+        }
     }
 }

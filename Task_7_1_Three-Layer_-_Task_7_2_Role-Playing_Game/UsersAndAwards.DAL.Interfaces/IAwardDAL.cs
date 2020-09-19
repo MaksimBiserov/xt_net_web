@@ -9,6 +9,6 @@ namespace UsersAndAwards.DAL.Interfaces
         Guid Add(Award award);
         void DeleteById(Guid id);
         IEnumerable<Award> GetAll();
-
+        void EditAward(Guid awardID, string title);
     }
 }

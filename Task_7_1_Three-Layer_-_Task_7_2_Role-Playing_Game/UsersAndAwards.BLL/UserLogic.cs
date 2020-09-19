@@ -33,5 +33,10 @@ namespace UsersAndAwards.BLL
         {
             return userDAL.GetAll().FirstOrDefault(item => item.ID == id);
         }
+
+        public void EditUser(Guid userID, string name, DateTime dateOfBirth)
+        {
+            userDAL.EditUser(userID, name, dateOfBirth);
+        }
     }
 }
