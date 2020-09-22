@@ -1,6 +1,7 @@
 ﻿using UsersAndAwards.BLL;
 using UsersAndAwards.BLL.Interfaces;
 using UsersAndAwards.DAL;
+using UsersAndAwards.DAL.SQL;
 using UsersAndAwards.DAL.Interfaces;
 
 namespace UsersAndAwards.Dependences
@@ -18,13 +19,17 @@ namespace UsersAndAwards.Dependences
 
         static DependencyResolver()
         {
-            UserDal = new UserDAL();
+            // UserDal = new UserDAL(); // JSON implementation
+            UserDal = new DAL.SQL.UserDAL(); // MS SQL implementation
             UserLogic = new UserLogic(UserDal);
-            AwardDAL = new AwardDAL();
+            // AwardDAL = new AwardDAL();
+            AwardDAL = new DAL.SQL.AwardDAL();
             AwardLogic = new AwardLogic(AwardDAL);
-            BindingUserAwardDAL = new BindingUserAwardDAL();
+            // BindingUserAwardDAL = new BindingUserAwardDAL();
+            BindingUserAwardDAL = new DAL.SQL.BindingUserAwardDAL();
             BindingUserAwardLogic = new BindingUserAwardLogic(BindingUserAwardDAL);
-            RegistratorDAL = new RegistratorDAL();
+            // RegistratorDAL = new RegistratorDAL();
+            RegistratorDAL = new DAL.SQL.RegistratorDAL();
             RegistratorLogic = new RegistratorLogic(RegistratorDAL);
         }
     }

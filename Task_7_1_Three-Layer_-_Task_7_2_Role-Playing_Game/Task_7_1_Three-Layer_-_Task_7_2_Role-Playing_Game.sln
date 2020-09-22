@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersAndAwards.Dependences"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersAndAwardsUIWeb", "UsersAndAwardsUIWeb\UsersAndAwardsUIWeb.csproj", "{7EF95461-D8B4-4A14-9BA9-8DB3A7EE90BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersAndAwards.DAL.SQL", "UsersAndAwards.DAL.SQL\UsersAndAwards.DAL.SQL.csproj", "{AB8598F2-4BDE-415E-A778-69FEE8F1A6E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{7EF95461-D8B4-4A14-9BA9-8DB3A7EE90BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EF95461-D8B4-4A14-9BA9-8DB3A7EE90BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EF95461-D8B4-4A14-9BA9-8DB3A7EE90BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB8598F2-4BDE-415E-A778-69FEE8F1A6E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB8598F2-4BDE-415E-A778-69FEE8F1A6E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB8598F2-4BDE-415E-A778-69FEE8F1A6E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB8598F2-4BDE-415E-A778-69FEE8F1A6E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +84,7 @@ Global
 		{CF3512C7-F479-4B59-82EF-9E955749CA72} = {8C4C4F60-6CC0-498F-B528-BE07F32EEF03}
 		{66AEDA96-C46A-4BD0-8F59-BA0A8A2BE604} = {7FEB6CD3-11EF-4D8B-A816-5BEF17D47749}
 		{7EF95461-D8B4-4A14-9BA9-8DB3A7EE90BB} = {7738F95D-9A7E-4D91-89DF-898A038E5EE6}
+		{AB8598F2-4BDE-415E-A778-69FEE8F1A6E2} = {C3E00A3D-6E58-416E-A948-F9BCADD24F90}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D8645474-FFBA-4838-A33E-D64997689ED3}
