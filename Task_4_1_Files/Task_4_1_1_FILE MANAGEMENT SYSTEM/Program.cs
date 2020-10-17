@@ -24,36 +24,13 @@ namespace Task_4_1_1_FILE_MANAGEMENT_SYSTEM
 
                 if (choose == "1")
                 {
-                    WriteLine("Включён режим наблюдателя.");
-                    WriteLine($"Рабочая папка: {CreatorDefault.PathMain}");
-                    WriteLine($"Папка резервных копий: {CreatorDefault.PathRecovery}");
-                    WriteLine($"Файл логирования изменений: {CreatorDefault.PathLog}");
-                    WriteLine($"Пожалуйста, закройте файл {CreatorDefault.PathLog}, если он открыт.");
-                    WriteLine("Для возврата в меню нажмите Enter");
-                    Viewer.View();
-                    ReadKey();
-
-                    // restarting the application to copy files correctly if the user selects "2"
-
-                    Process.Start(Assembly.GetExecutingAssembly().Location);
-                    Environment.Exit(0);
+                    DisplayObservation();
                 }
 
                 else if (choose == "2")
                 {
-                    WriteLine("Включён режим отката.");
-                    WriteLine("Введите желаемую дату в формате dd.mm.yyyy hh:mm:ss");
-                    DateTime date;
+                    DisplayRollback();
 
-                    while (!DateTime.TryParse(ReadLine(), out date))
-                    {
-                        WriteLine("При вводе используйте именно формат dd.mm.yyyy hh:mm:ss");
-                    }
-
-                    Recovery.Recover(date);
-                    WriteLine("Копия восстановлена.");
-                    WriteLine("Для возврата в меню нажмите Enter");
-                    ReadKey();
                 }
 
                 else
@@ -61,6 +38,40 @@ namespace Task_4_1_1_FILE_MANAGEMENT_SYSTEM
                     WriteLine("Введите одну из цифр, указанных в меню.");
                 }
             }
+        }
+
+        private static void DisplayObservation()
+        {
+            WriteLine("Включён режим наблюдателя.");
+            WriteLine($"Рабочая папка: {CreatorDefault.PathMain}");
+            WriteLine($"Папка резервных копий: {CreatorDefault.PathRecovery}");
+            WriteLine($"Файл логирования изменений: {CreatorDefault.PathLog}");
+            WriteLine($"Пожалуйста, закройте файл {CreatorDefault.PathLog}, если он открыт.");
+            WriteLine("Для возврата в меню нажмите Enter");
+            Viewer.View();
+            ReadKey();
+
+            // restarting the application to copy files correctly if the user selects "2"
+
+            Process.Start(Assembly.GetExecutingAssembly().Location);
+            Environment.Exit(0);
+        }
+
+        private static void DisplayRollback()
+        {
+            WriteLine("Включён режим отката.");
+            WriteLine("Введите желаемую дату в формате dd.mm.yyyy hh:mm:ss");
+            DateTime date;
+
+            while (!DateTime.TryParse(ReadLine(), out date))
+            {
+                WriteLine("При вводе используйте именно формат dd.mm.yyyy hh:mm:ss");
+            }
+
+            Recovery.Recover(date);
+            WriteLine("Копия восстановлена.");
+            WriteLine("Для возврата в меню нажмите Enter");
+            ReadKey();
         }
     }
 }

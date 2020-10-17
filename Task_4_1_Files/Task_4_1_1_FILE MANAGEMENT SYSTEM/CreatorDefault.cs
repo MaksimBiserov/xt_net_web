@@ -9,9 +9,9 @@ namespace Task_4_1_1_FILE_MANAGEMENT_SYSTEM
 
     internal class CreatorDefault
     {
-        internal static string PathMain => @"C:\FileManagementSystem\MainFolder";
-        internal static string PathRecovery => @"C:\FileManagementSystem\RecoveryFolder";
-        internal static string PathLog => @"C:\FileManagementSystem\log.txt";
+        internal const string PathMain = @"C:\FileManagementSystem\MainFolder";
+        internal const string PathRecovery = @"C:\FileManagementSystem\RecoveryFolder";
+        internal const string PathLog = @"C:\FileManagementSystem\log.txt";
 
         internal static void CreateSourceFilesAndFolders()
         {
